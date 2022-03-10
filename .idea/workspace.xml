@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f796c88a-9f36-48b0-bcb8-bb22d5a81f21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/manifests/kustomization.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/manifests/kustomization.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifests/test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/stacks/test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stacks/test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/manifests/stacks/test.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/manifests" />
       <recent name="$PROJECT_DIR$/stacks" />
     </key>
   </component>
