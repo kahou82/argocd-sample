@@ -1,21 +1,42 @@
+apiVersion: v1
+data:
+  ALT_GREETING: Hiya
+  ENABLE_RISKY: "false"
+kind: ConfigMap
+metadata:
+  name: staging-the-map-7c88gg7h68
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
+  name: staging-the-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      deployment: hello
   template:
     metadata:
       labels:
-        app: nginx
+        deployment: hello
     spec:
       containers:
-      - name: nginx
-        image: nginx:13
+      - command:
+        - /hello
+        - --port=8080
+        - --enableRiskyFeature=$(ENABLE_RISKY)
+        env:
+        - name: ALT_GREETING
+          valueFrom:
+            configMapKeyRef:
+              key: ALT_GREETING
+              name: staging-the-map-7c88gg7h68
+        - name: ENABLE_RISKY
+          valueFrom:
+            configMapKeyRef:
+              key: ENABLE_RISKY
+              name: staging-the-map-7c88gg7h68
+        image: monopole/hello:2
+        name: the-container
         ports:
-        - containerPort: 80
+        - containerPort: 8080
